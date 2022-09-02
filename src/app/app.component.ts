@@ -11,6 +11,7 @@ export class AppComponent {
 
   sourceList: Satellite[];
   displayList: Satellite[];
+  probeList: number;
 
 	constructor() {
 		this.sourceList = [];
@@ -31,7 +32,11 @@ export class AppComponent {
 
 				 // make a copy of the sourceList to be shown to the user
 				 this.displayList = this.sourceList.slice(0);
-	  
+				this.probeList = this.sourceList.slice(0).filter((sat)=>{
+					return sat.operational
+					
+				}).length
+
 			}.bind(this));
 		}.bind(this));
 
@@ -49,7 +54,9 @@ export class AppComponent {
 		// assign this.displayList to be the array of matching satellites
 		// this will cause Angular to re-make the table, but now only containing matches
 		this.displayList = matchingSatellites;
-	}
+		this.probeList = matchingSatellites.filter((sat)=>{
+			return sat.operational
+		}).length	}
 
 
 }

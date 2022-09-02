@@ -7,6 +7,14 @@
 	background-color: #da8a8a;
 }
 
+.odds {
+	background-color: #0015ff36
+}
+
+.evens {
+	background-color: #0dff00
+}
+
 table {
  color: #111;
  border-radius: 5px;
